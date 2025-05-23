@@ -25,19 +25,12 @@
   },
   "api": {
     "services": {
-      "placeholder": { "url": "http://placeholder:4100" },
       "pip": { "url": "http://pip:4200" },
-      "interpolation": { "url": "http://interpolation:4300" },
-      "libpostal": { "url": "http://libpostal:4400" }
     }
   },
   "imports": {
     "adminLookup": {
       "enabled": true
-    },
-    "geonames": {
-      "datapath": "/data/geonames",
-      "countryCode": "BR"
     },
     "openstreetmap": {
       "download": [
@@ -48,42 +41,6 @@
       "import": [{
         "filename": "brazil-latest.osm.pbf"
       }]
-    },
-    "openaddresses": {
-      "datapath": "/data/openaddresses",
-      "files": [
-        "br/ac/statewide.csv",
-        "br/al/statewide.csv",
-        "br/am/statewide.csv",
-        "br/ap/statewide.csv",
-        "br/ba/statewide.csv",
-        "br/ce/statewide.csv",
-        "br/df/statewide.csv",
-        "br/es/statewide.csv",
-        "br/go/statewide.csv",
-        "br/ma/statewide.csv",
-        "br/mg/statewide.csv",
-        "br/ms/statewide.csv",
-        "br/mt/statewide.csv",
-        "br/pa/statewide.csv",
-        "br/pb/statewide.csv",
-        "br/pe/statewide.csv",
-        "br/pi/statewide.csv",
-        "br/pr/statewide.csv",
-        "br/rj/statewide.csv",
-        "br/rn/statewide.csv",
-        "br/ro/statewide.csv",
-        "br/rr/statewide.csv",
-        "br/rs/statewide.csv",
-        "br/sc/statewide.csv",
-        "br/se/statewide.csv",
-        "br/sp/statewide.csv",
-        "br/to/statewide.csv"
-      ]
-    },
-    "polyline": {
-      "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
