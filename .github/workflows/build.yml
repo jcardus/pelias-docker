@@ -43,7 +43,7 @@ jobs:
             "server_type": "ccx13",
             "image": "docker-ce",
             "ssh_keys": ["pelias-builder"],
-            "location": "nbg1"
+            "location": "ash"
           }')
 
         echo "$RESPONSE"
