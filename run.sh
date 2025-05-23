@@ -1,10 +1,6 @@
 #!/bin/bash
 set -x
 
-# install pelias script
-# this is the _only_ setup command that should require `sudo`
-sudo ln -s "$(pwd)/pelias" /usr/local/bin/pelias
-
 # cd into the project directory
 cd projects/brazil
 

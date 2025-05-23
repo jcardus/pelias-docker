@@ -57,6 +57,7 @@ jobs:
 
         for i in {1..20}; do
           ssh -o StrictHostKeyChecking=no -i key.pem root@${{ steps.create.outputs.ipv4 }} "echo ready" && break
+          echo "sleeping..."
           sleep 10
         done
 
