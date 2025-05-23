@@ -68,6 +68,7 @@ jobs:
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
+          echo "running v1.0.0"
           adduser --disabled-password --gecos "" pelias
           usermod -aG docker pelias
           echo "cloning..."          
