@@ -73,7 +73,9 @@ jobs:
           git clone https://github.com/jcardus/pelias-docker
           echo "chowning pelias"
           chown pelias:pelias pelias-docker/pelias
+          ls -l pelias-docker/pelias
           ln -s "$(pwd)/pelias-docker/pelias" /usr/local/bin/pelias
+          ls -l /usr/local/bin/pelias
           su - pelias -c '
             git clone https://github.com/jcardus/pelias-docker
             cd pelias-docker && \
