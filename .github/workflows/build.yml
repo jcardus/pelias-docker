@@ -69,7 +69,8 @@ jobs:
         script: |
           adduser --disabled-password --gecos "" pelias
           usermod -aG docker pelias
-          git clone https://github.com/jcardus/pelias-docker          
+          git clone https://github.com/jcardus/pelias-docker
+          chown pelias:pelias pelias-docker/pelias
           ln -s "$(pwd)/pelias-docker/pelias" /usr/local/bin/pelias
           su - pelias -c '
             git clone https://github.com/jcardus/pelias-docker
