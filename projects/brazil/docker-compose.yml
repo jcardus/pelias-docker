@@ -34,21 +34,6 @@ services:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
       - "./blacklist/:/data/blacklist"
-  openaddresses:
-    image: pelias/openaddresses:master
-    container_name: pelias_openaddresses
-    user: "${DOCKER_USER}"
-    volumes:
-      - "./pelias.json:/code/pelias.json"
-      - "${DATA_DIR}:/data"
-      - "./blacklist/:/data/blacklist"
-  transit:
-    image: pelias/transit:master
-    container_name: pelias_transit
-    user: "${DOCKER_USER}"
-    volumes:
-      - "./pelias.json:/code/pelias.json"
-      - "${DATA_DIR}:/data"
   pip:
     image: pelias/pip-service:master
     container_name: pelias_pip-service
