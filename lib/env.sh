@@ -17,13 +17,6 @@ function set_docker_user(){
 
 # ensure the user environment is correctly set up
 function env_check(){
-  if [ "${DOCKER_USER}" = "0:0" ]; then
-    echo "You are running as root"
-    echo "This is insecure and not supported by Pelias."
-    echo "Please try again as a non-root user."
-    exit 1
-  fi
-
   if [ -z "${DATA_DIR}" ]; then
     echo "You must set the DATA_DIR env var to a valid directory on your local machine."
     echo
