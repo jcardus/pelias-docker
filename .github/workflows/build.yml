@@ -52,8 +52,11 @@ jobs:
 
     - name: Wait for SSH availability
       run: |
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > key.pem
+        chmod 600 key.pem
+
         for i in {1..20}; do
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa root@${{ steps.create.outputs.ipv4 }} "echo ready" && break
+          ssh -o StrictHostKeyChecking=no -i key.pem root@${{ steps.create.outputs.ipv4 }} "echo ready" && break
           sleep 10
         done
 
@@ -64,10 +67,16 @@ jobs:
         username: root
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          git clone https://github.com/pelias/docker ~/pelias
-          cd ~/pelias
-          ./scripts/bootstrap.sh
-          nohup bash -c './scripts/build.sh && ./scripts/prepare_all.sh && ./scripts/import_all.sh && docker-compose up -d' > pelias.log 2>&1 &
+          adduser --disabled-password --gecos "" pelias
+          usermod -aG docker pelias
+                    git clone https://github.com/jcardus/pelias-docker
+          chown -R pelias:pelias pelias-docker
+          ln -s "$(pwd)/pelias-docker/pelias" /usr/local/bin/pelias
+          su - pelias -c '
+            cd pelias-docker && \
+            nohup bash -c "./run.sh" > pelias.log 2>&1 &
+          '
+
 
     - name: Output server IP
       run: echo "Pelias build started at ${{ steps.create.outputs.ipv4 }}"
