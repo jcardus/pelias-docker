@@ -70,14 +70,11 @@ jobs:
         script: |
           adduser --disabled-password --gecos "" pelias
           usermod -aG docker pelias
-          git clone https://github.com/jcardus/pelias-docker
-          echo "chowning pelias"
-          chown pelias:pelias pelias-docker/pelias
-          ls -l pelias-docker/pelias
-          ln -s "$(pwd)/pelias-docker/pelias" /usr/local/bin/pelias
-          ls -l /usr/local/bin/pelias
+          echo "cloning..."          
+          git clone https://github.com/jcardus/pelias-docker /home/pelias/pelias-docker
+          chown -R pelias:pelias /home/pelias/pelias-docker
+          ln -s /home/pelias/pelias-docker/pelias /usr/local/bin/pelias
           su - pelias -c '
-            git clone https://github.com/jcardus/pelias-docker
             cd pelias-docker && \
             nohup bash -c "./run.sh" > pelias.log 2>&1 &
           '
