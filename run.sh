@@ -18,6 +18,15 @@ pelias elastic wait
 pelias elastic create
 pelias download osm
 pelias download wof
+pelias download oa
+
+mkdir -p ./data/polylines
+cd data/polylines
+wget https://data.geocode.earth/osm/2022-35/brazil-valhalla.polylines.0sv.gz
+gunzip brazil-valhalla.polylines.0sv.gz
+cd ../..
+
+pelias import polylines
 pelias import osm
 pelias import wof
 pelias compose up
