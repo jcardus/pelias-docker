@@ -7,6 +7,29 @@ jobs:
   pelias:
     runs-on: ubuntu-latest
     steps:
+    - name: Register SSH Key with Hetzner
+      id: sshkey
+      run: |
+        KEY_NAME="pelias-builder"
+        PUB_KEY="${{ secrets.SSH_PUBLIC_KEY }}"
+
+        # Check if the key already exists
+        EXISTING_ID=$(curl -s \
+          -H "Authorization: Bearer ${{ secrets.HETZNER_TOKEN }}" \
+          https://api.hetzner.cloud/v1/ssh_keys \
+          | jq -r --arg name "$KEY_NAME" '.ssh_keys[] | select(.name == $name) | .id')
+
+        if [ -z "$EXISTING_ID" ]; then
+          echo "Registering new SSH key with Hetzner..."
+          RESPONSE=$(curl -s -X POST https://api.hetzner.cloud/v1/ssh_keys \
+            -H "Authorization: Bearer ${{ secrets.HETZNER_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"name": "'"$KEY_NAME"'", "public_key": "'"$PUB_KEY"'"}')
+          echo "$RESPONSE"
+        else
+          echo "SSH key already exists with ID: $EXISTING_ID"
+        fi
+
     - name: Create Hetzner Server
       id: create
       run: |
@@ -19,7 +42,7 @@ jobs:
             "name": "'"$SERVER_NAME"'",
             "server_type": "ccx13",
             "image": "docker-ce",
-            "ssh_keys": ["${{ secrets.SSH_PUBLIC_KEY }}"],
+            "ssh_keys": ["pelias-builder"],
             "location": "nbg1"
           }')
 
