@@ -74,11 +74,8 @@ jobs:
           git clone https://github.com/jcardus/pelias-docker /home/pelias/pelias-docker
           chown -R pelias:pelias /home/pelias/pelias-docker
           ln -s /home/pelias/pelias-docker/pelias /usr/local/bin/pelias
-          su - pelias -c '
-            cd pelias-docker && \
-            nohup bash -c "./run.sh" > pelias.log 2>&1 &
-          '
-
-
+          nohup su - pelias -c 'cd pelias-docker && ./run.sh' > pelias.log 2>&1 &
+          echo "waiting for pelias to start..."
+          
     - name: Output server IP
       run: echo "Pelias build started at ${{ steps.create.outputs.ipv4 }}"
