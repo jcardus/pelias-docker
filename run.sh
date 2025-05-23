@@ -1,12 +1,6 @@
 #!/bin/bash
 set -x
 
-# change directory to the where you would like to install Pelias
-# cd /path/to/install
-
-# clone this repository
-git clone https://github.com/jcardus/pelias-docker.git && cd pelias-docker
-
 # install pelias script
 # this is the _only_ setup command that should require `sudo`
 sudo ln -s "$(pwd)/pelias" /usr/local/bin/pelias
