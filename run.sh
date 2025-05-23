@@ -18,11 +18,6 @@ pelias elastic wait
 pelias elastic create
 pelias download osm
 pelias download wof
-pelias prepare osm
-pelias prepare wof
 pelias import osm
 pelias import wof
 pelias compose up
-
-# optionally run tests
-pelias test run
