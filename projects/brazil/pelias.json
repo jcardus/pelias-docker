@@ -45,6 +45,7 @@
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
       "importPostalcodes": true,
+      "countryCode": ["BR", "CL", "PT", "AR"],
       "importPlace": [
         "85633009",
         "85633057",
