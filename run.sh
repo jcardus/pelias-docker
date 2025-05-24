@@ -2,7 +2,7 @@
 set -x
 
 # cd into the project directory
-cd projects/brazil
+cd projects/frotaweb
 
 # create a directory to store Pelias data files
 # see: https://github.com/pelias/docker#variable-data_dir

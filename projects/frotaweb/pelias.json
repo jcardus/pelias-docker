@@ -40,6 +40,7 @@
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
+      "importVenues": false,
       "import": [{"filename": "brazil-latest.osm.pbf"}, {"filename": "chile-latest.osm.pbf"}, {"filename": "portugal-latest.osm.pbf"}]
     },
     "openaddresses": {
