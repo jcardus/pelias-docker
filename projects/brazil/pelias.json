@@ -40,7 +40,7 @@
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{"filename": "brazil-latest.osm.pbf"}, {"filename": "chile-latest.osm.pbf"}]
+      "import": [{"filename": "brazil-latest.osm.pbf"}, {"filename": "chile-latest.osm.pbf"}, {"filename": "portugal-latest.osm.pbf"}]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
@@ -71,7 +71,11 @@
         "br/sc/statewide.csv",
         "br/se/statewide.csv",
         "br/sp/statewide.csv",
-        "br/to/statewide.csv"
+        "br/to/statewide.csv",
+        "cl/countrywide.csv",
+        "ar/c/city_of_buenos_aires.csv",
+        "ar/m/mendoza.csv",
+        "pt/countrywide.csv"
       ]
     },
     "polyline": {
