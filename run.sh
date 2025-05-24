@@ -29,4 +29,5 @@ cd ../..
 pelias import polylines
 pelias import osm
 pelias import wof
+pelias import oa
 pelias compose up
