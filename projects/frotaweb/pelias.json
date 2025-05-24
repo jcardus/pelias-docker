@@ -81,7 +81,7 @@
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "brazil-valhalla.polylines.0sv" ]
+      "files": [ "polylines.sv0" ]
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
@@ -91,7 +91,7 @@
         "85633009",
         "85633057",
         "85633735",
-        "85632505"   
+        "85632505"
       ]
     }
   }
